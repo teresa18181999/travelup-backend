@@ -80,6 +80,23 @@ public class ViajeDAO {
             return ps.executeUpdate() > 0;
         }
     }
+    
+    public boolean actualizarViaje(Viaje v) throws SQLException {
+    String sql = "UPDATE viajes SET nombre=?, destino=?, fecha_inicio=?, fecha_fin=?, estado=? WHERE id=?";
+
+    try (Connection conn = ConexionDB.obtenerConexion();
+         PreparedStatement ps = conn.prepareStatement(sql)) {
+
+        ps.setString(1, v.getNombre());
+        ps.setString(2, v.getDestino());
+        ps.setString(3, v.getFechaInicio());
+        ps.setString(4, v.getFechaFin());
+        ps.setString(5, v.getEstado());
+        ps.setInt(6, v.getId());
+
+        return ps.executeUpdate() > 0;
+    }
+}
 
     private Viaje mapear(ResultSet rs) throws SQLException {
         Viaje v = new Viaje();
