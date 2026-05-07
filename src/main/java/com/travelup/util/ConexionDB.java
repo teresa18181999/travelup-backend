@@ -6,19 +6,24 @@ import java.sql.SQLException;
 
 public class ConexionDB {
 
-    private static final String URL = "jdbc:mysql://localhost:3306/travelup_db?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC";
-    private static final String USUARIO  = "travelup_user";
-    private static final String PASSWORD = "travelup_pass";
+    private static final String DB_HOST = System.getenv().getOrDefault("DB_HOST", "localhost");
+    private static final String DB_PORT = System.getenv().getOrDefault("DB_PORT", "3306");
+    private static final String DB_NAME = System.getenv().getOrDefault("DB_NAME", "travelup_db");
+    private static final String DB_USER = System.getenv().getOrDefault("DB_USER", "travelup_user");
+    private static final String DB_PASSWORD = System.getenv().getOrDefault("DB_PASSWORD", "travelup_pass");
+
+    private static final String URL = "jdbc:mysql://" + DB_HOST + ":" + DB_PORT + "/" + DB_NAME
+            + "?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC";
 
     static {
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
         } catch (ClassNotFoundException e) {
-            throw new ExceptionInInitializerError("Driver MySQL no encontrado: " + e.getMessage());
+            throw new RuntimeException("No se pudo cargar el driver de MySQL", e);
         }
     }
 
-    public static Connection obtenerConexion() throws SQLException {
-        return DriverManager.getConnection(URL, USUARIO, PASSWORD);
+    public static Connection getConnection() throws SQLException {
+        return DriverManager.getConnection(URL, DB_USER, DB_PASSWORD);
     }
 }

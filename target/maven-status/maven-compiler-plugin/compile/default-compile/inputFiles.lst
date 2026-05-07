@@ -1,12 +1,16 @@
+C:\Users\teresa.pedrero2005\Documents\NetBeansProjects\TravelUpp\src\main\java\com\travelup\controller\EncuestaServlet.java
 C:\Users\teresa.pedrero2005\Documents\NetBeansProjects\TravelUpp\src\main\java\com\travelup\controller\LoginServlet.java
 C:\Users\teresa.pedrero2005\Documents\NetBeansProjects\TravelUpp\src\main\java\com\travelup\controller\ParticipanteServlet.java
 C:\Users\teresa.pedrero2005\Documents\NetBeansProjects\TravelUpp\src\main\java\com\travelup\controller\RegistroServlet.java
 C:\Users\teresa.pedrero2005\Documents\NetBeansProjects\TravelUpp\src\main\java\com\travelup\controller\VerificarCodigoServlet.java
 C:\Users\teresa.pedrero2005\Documents\NetBeansProjects\TravelUpp\src\main\java\com\travelup\controller\ViajeDetalleServlet.java
 C:\Users\teresa.pedrero2005\Documents\NetBeansProjects\TravelUpp\src\main\java\com\travelup\controller\ViajeServlet.java
+C:\Users\teresa.pedrero2005\Documents\NetBeansProjects\TravelUpp\src\main\java\com\travelup\controller\VotoServlet.java
+C:\Users\teresa.pedrero2005\Documents\NetBeansProjects\TravelUpp\src\main\java\com\travelup\dao\EncuestaDAO.java
 C:\Users\teresa.pedrero2005\Documents\NetBeansProjects\TravelUpp\src\main\java\com\travelup\dao\ParticipanteDAO.java
 C:\Users\teresa.pedrero2005\Documents\NetBeansProjects\TravelUpp\src\main\java\com\travelup\dao\UsuarioDAO.java
 C:\Users\teresa.pedrero2005\Documents\NetBeansProjects\TravelUpp\src\main\java\com\travelup\dao\ViajeDAO.java
+C:\Users\teresa.pedrero2005\Documents\NetBeansProjects\TravelUpp\src\main\java\com\travelup\dao\VotoDAO.java
 C:\Users\teresa.pedrero2005\Documents\NetBeansProjects\TravelUpp\src\main\java\com\travelup\model\Usuario.java
 C:\Users\teresa.pedrero2005\Documents\NetBeansProjects\TravelUpp\src\main\java\com\travelup\model\Viaje.java
 C:\Users\teresa.pedrero2005\Documents\NetBeansProjects\TravelUpp\src\main\java\com\travelup\util\ConexionDB.java

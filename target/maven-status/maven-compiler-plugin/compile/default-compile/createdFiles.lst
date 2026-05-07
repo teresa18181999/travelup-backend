@@ -1,6 +1,7 @@
 com\travelup\model\Viaje.class
 com\travelup\controller\LoginServlet.class
 com\travelup\dao\UsuarioDAO.class
+com\travelup\dao\VotoDAO.class
 com\travelup\controller\ViajeDetalleServlet.class
 com\travelup\controller\ViajeServlet.class
 com\travelup\dao\ParticipanteDAO.class
@@ -8,5 +9,8 @@ com\travelup\util\ConexionDB.class
 com\travelup\controller\VerificarCodigoServlet.class
 com\travelup\controller\ParticipanteServlet.class
 com\travelup\model\Usuario.class
+com\travelup\controller\EncuestaServlet.class
 com\travelup\controller\RegistroServlet.class
+com\travelup\controller\VotoServlet.class
+com\travelup\dao\EncuestaDAO.class
 com\travelup\dao\ViajeDAO.class

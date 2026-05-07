@@ -10,7 +10,7 @@ public class UsuarioDAO {
     public Usuario insertarUsuario(Usuario u) throws SQLException {
         String sql = "INSERT INTO usuarios (nombre, telefono, email) VALUES (?, ?, ?)";
 
-        try (Connection conn = ConexionDB.obtenerConexion();
+        try (Connection conn = ConexionDB.getConnection();
              PreparedStatement ps = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
 
             ps.setString(1, u.getNombre());
@@ -19,9 +19,7 @@ public class UsuarioDAO {
             ps.executeUpdate();
 
             try (ResultSet rs = ps.getGeneratedKeys()) {
-                if (rs.next()) {
-                    u.setId(rs.getInt(1));
-                }
+                if (rs.next()) u.setId(rs.getInt(1));
             }
         }
         return u;
@@ -30,7 +28,7 @@ public class UsuarioDAO {
     public Usuario buscarPorTelefono(String telefono) throws SQLException {
         String sql = "SELECT id, nombre, telefono, email FROM usuarios WHERE telefono = ?";
 
-        try (Connection conn = ConexionDB.obtenerConexion();
+        try (Connection conn = ConexionDB.getConnection();
              PreparedStatement ps = conn.prepareStatement(sql)) {
 
             ps.setString(1, telefono);
@@ -52,12 +50,11 @@ public class UsuarioDAO {
     public boolean actualizarEmail(int id, String email) throws SQLException {
         String sql = "UPDATE usuarios SET email = ? WHERE id = ?";
 
-        try (Connection conn = ConexionDB.obtenerConexion();
+        try (Connection conn = ConexionDB.getConnection();
              PreparedStatement ps = conn.prepareStatement(sql)) {
 
             ps.setString(1, email);
             ps.setInt(2, id);
-
             return ps.executeUpdate() > 0;
         }
     }

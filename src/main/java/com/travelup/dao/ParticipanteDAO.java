@@ -11,7 +11,7 @@ public class ParticipanteDAO {
     public boolean añadirParticipante(int idViaje, int idUsuario) throws SQLException {
         String sql = "INSERT INTO viaje_participantes (id_viaje, id_usuario) VALUES (?, ?)";
 
-        try (Connection conn = ConexionDB.obtenerConexion();
+        try (Connection conn = ConexionDB.getConnection();
              PreparedStatement ps = conn.prepareStatement(sql)) {
 
             ps.setInt(1, idViaje);
@@ -24,15 +24,13 @@ public class ParticipanteDAO {
         String sql = "SELECT id_usuario FROM viaje_participantes WHERE id_viaje = ?";
         List<Integer> lista = new ArrayList<>();
 
-        try (Connection conn = ConexionDB.obtenerConexion();
+        try (Connection conn = ConexionDB.getConnection();
              PreparedStatement ps = conn.prepareStatement(sql)) {
 
             ps.setInt(1, idViaje);
 
             try (ResultSet rs = ps.executeQuery()) {
-                while (rs.next()) {
-                    lista.add(rs.getInt("id_usuario"));
-                }
+                while (rs.next()) lista.add(rs.getInt("id_usuario"));
             }
         }
         return lista;
@@ -41,7 +39,7 @@ public class ParticipanteDAO {
     public boolean eliminarParticipante(int idViaje, int idUsuario) throws SQLException {
         String sql = "DELETE FROM viaje_participantes WHERE id_viaje = ? AND id_usuario = ?";
 
-        try (Connection conn = ConexionDB.obtenerConexion();
+        try (Connection conn = ConexionDB.getConnection();
              PreparedStatement ps = conn.prepareStatement(sql)) {
 
             ps.setInt(1, idViaje);
